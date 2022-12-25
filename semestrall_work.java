@@ -1,17 +1,25 @@
 package semestral_work;
 import java.util.Scanner;
 
-public class semestrall_work {
+	  
+/** 
+ * 1. Program searches for the longest sorted subset in a given set. 
+ * @author VolodymyrCherniakov
+ * @version 23/12/2022 
+ */  
+
+
+public class SemestralProject {
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         boolean work = true;
         int choice;
         while (work) {
-            System.out.println("Enter the choice:\n1 - Term Paper\n2 - Christmas work\n0 - Exit");
+            System.out.println("Enter the choice:\n1 - Semestral Project\n2 - Christmas Project\n0 - Exit");
             choice = scan.nextInt();
             switch (choice) {
                 case 1:
-                    TermPaper();
+                    SemestralProject();
                     break;
                 case 2:
                     snowman();
@@ -27,7 +35,7 @@ public class semestrall_work {
         
     }
 
-    public static void TermPaper() {
+    public static void SemestralProject() {
         System.out.print("\nEnter the number of vectors(n): ");
         int vectors = scan.nextInt();
         int length;
