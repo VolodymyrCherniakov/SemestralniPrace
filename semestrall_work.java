@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 	  
 /** 
- * 1. Program searches for the longest sorted subset in a given set. 
+ * 1.The program finds 2 vectors with the largest scalar product among the given vectors.  
  * @author VolodymyrCherniakov
  * @version 23/12/2022 
  */  
@@ -34,7 +34,7 @@ public class SemestralProject {
         }
         
     }
-
+    
     public static void SemestralProject() {
         System.out.print("\nEnter the number of vectors(n): ");
         int vectors = scan.nextInt();
@@ -50,7 +50,14 @@ public class SemestralProject {
             vectors = scan.nextInt();
         }
     }
-
+    
+    /**
+    * This method creates and fills 2D array.
+    * The method creates a 2D array and fills it one by one with the numbers, which need to enter.
+    * @param vectors amount of vectors
+    * @param length length of vectors
+    * @return 2D array with numbers
+    */
     public static double[][] createArray(int vectors, int length) {
         double[][] arr = new double[vectors][length];
         System.out.println("Enter the vectors: ");
@@ -61,7 +68,12 @@ public class SemestralProject {
         }
         return arr;
     }
-
+    
+    /**
+     * This method writes 2D array in the console.
+     * The method goes through 2D array, which you enter, in two loops and writes out every i j element
+     * @param arr 2D array 
+     */
     public static void printArray(double[][] arr) {
         System.out.print("\nAll vectors:\n");
         for (int i = 0; i < arr.length; i++) {
@@ -71,7 +83,19 @@ public class SemestralProject {
             System.out.println("");
         }
     }
-
+    
+    /**
+     * This method find the 2 vectors with the largest scalar product.
+     * The method creates 2D array for the biggest vectors.Three cycles pass through the 2D field. 
+     * The first goes through the first dimension of the array from 0 to the penultimate element (i).
+     * The second one also passes through the first dimension of the array,
+     * but from the element of the first loop (i) + 1 to the last element of the array (k) .
+     * The third passes through the second dimension of the array from the beginning to the end (j).
+     * In the third loop the sum of arr[i][j] and arr[k][j] is added every iteration. If temp is greater 
+     * than the largest scalar product then 2 vectors are overwritten into the maxVec array.
+     * After all, the printVectorsAndProduct() function is called.
+     * @param arr 2D array, were placed all vectors. 
+     */
     public static void MaxScalarProduct(double[][] arr) {
         double[][] maxVec = new double[2][arr.length];
         double scalProd = 0;
@@ -92,6 +116,15 @@ public class SemestralProject {
         printVectorsAndProduct(maxVec, scalProd);
     }
 
+    /**
+     * This method writes in console 2 vectors with the biggest scalar product and their scalar product.
+     * The first cycle passes through the first dimension ( i ). 
+     * By the second cycle we pass through the second dimension ( j ).
+     * With each iteration writes in console maxVec[i][j]
+     * After it writes in console scalar product of these vectors.
+     * @param maxVec 2D array with vectors, which have the biggest scalar product.
+     * @param scalProd Maximum scalar product.
+     */
     public static void printVectorsAndProduct(double[][] maxVec, double scalProd) {
         System.out.println("Vectors with maximum scalar product:");
         for (int i = 0; i < maxVec.length; i++) {
