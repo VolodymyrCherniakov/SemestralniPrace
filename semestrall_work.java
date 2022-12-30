@@ -5,7 +5,7 @@ import java.util.Scanner;
 /** 
  * 1.The program finds 2 vectors with the largest scalar product among the given vectors.  
  * @author VolodymyrCherniakov
- * @version 23/12/2022 
+ * @version 26/12/2022 
  */  
 
 
@@ -15,7 +15,7 @@ public class SemestralProject {
         boolean work = true;
         int choice;
         while (work) {
-            System.out.println("Enter the choice:\n1 - Semestral Project\n2 - Christmas Project\n0 - Exit");
+            System.out.println("\n\nEnter the choice:\n1 - Semestral Project\n2 - Christmas Project\n0 - Exit");
             choice = scan.nextInt();
             switch (choice) {
                 case 1:
@@ -31,23 +31,29 @@ public class SemestralProject {
                     System.out.println("Wrong choice, try again.");
                     break;
             }
-        }
-        
+        }   
     }
     
+    /**
+     * Main function of Semestral Project.
+     */
     public static void SemestralProject() {
-        System.out.print("\nEnter the number of vectors(n): ");
-        int vectors = scan.nextInt();
+        
+        int vectors;
         int length;
         double[][] arr;
-        while (vectors > 0) {
+        System.out.print("\nEnter the number of vectors(n): ");
+        while ((vectors = scan.nextInt()) > 0) {
             System.out.print("Enter the length of vectors(k): ");
             length = scan.nextInt();
+            if(length < 0){
+                System.out.println("Incorrect input\n\n");
+                break;
+            }
             arr = createArray(vectors, length);
             printArray(arr);
             MaxScalarProduct(arr);
             System.out.print("\nEnter the number of vectors(n): ");
-            vectors = scan.nextInt();
         }
     }
     
@@ -63,7 +69,7 @@ public class SemestralProject {
         System.out.println("Enter the vectors: ");
         for (int i = 0; i < vectors; i++) {
             for (int j = 0; j < length; j++) {
-                arr[i][j] = scan.nextDouble();
+                arr[i][j] = scan.nextInt();
             }
         }
         return arr;
@@ -137,7 +143,9 @@ public class SemestralProject {
         System.out.print("Scalar product of these vectors: " + scalProd);
     }
 
-    
+    /**
+     * Main part of christmas project.
+     */
     
     public static void snowman(){
         System.out.print("\n");
